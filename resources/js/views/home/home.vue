@@ -1,7 +1,7 @@
 <template>
     <div id="home">
         HomePage
-        <router-link to='test'>rg</router-link>
+        <router-link to='test'>Link to test</router-link>
     </div>
 </template>
 
