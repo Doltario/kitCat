@@ -1,0 +1,10 @@
+<div>
+  <ul id="container-cats">
+    <li class="cat-bloc"  v-for="cat in cats" :key="cat.name">
+        <div class="cat-img">
+          <img :src="cat.min">
+        </div>
+        <h2>{{ cat.name }}</h2>
+    </li>
+  </ul>
+</div>
