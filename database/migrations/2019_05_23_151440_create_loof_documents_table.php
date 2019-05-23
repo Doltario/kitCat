@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBreedsTable extends Migration
+class CreateLoofDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateBreedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('breeds', function (Blueprint $table) {
-            $table->bigIncrements('breed_id');
-            $table->string('cat_api_breed_id', 255);
+        Schema::create('loof_documents', function (Blueprint $table) {
+            $table->bigIncrements('loof_doucment_id');
+            $table->string('loof_document_url', 255);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateBreedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('breeds');
+        Schema::dropIfExists('loof_documents');
     }
 }
