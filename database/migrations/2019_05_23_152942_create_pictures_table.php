@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatsTable extends Migration
+class CreatePicturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cats', function (Blueprint $table) {
-            $table->bigIncrements('cat_id');
-            $table->string('name_cat', 64);
-            // @TODO: loof_document_id
-            // @TODO: fk_breed_id
-            // @TODO: pictures
+        Schema::create('pictures', function (Blueprint $table) {
+            $table->bigIncrements('picture_id');
+            $table->string('picture_url', 255);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateCatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cats');
+        Schema::dropIfExists('pictures');
     }
 }
