@@ -10,4 +10,8 @@ class LoofDocument extends Model
     protected $primaryKey = 'loof_document_id';
     protected $visible = ['loof_document_url'];
 
+    public function cat()
+    {
+        return $this->belongsTo('App\Cat', 'fk_cat_id');
+    }
 }
