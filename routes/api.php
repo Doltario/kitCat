@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('cats', 'CatController')->only(['store', 'update', 'destroy']);
 
-Route::get('/cat/{id}', function () {
+Route::get('/cat/{id}', function ($id) {
     return new CatResource(Cat::find($id));
 });
 
