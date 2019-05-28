@@ -7,6 +7,12 @@
         <script src="/js/app.js" defer></script>
     </head>
     <body>
+      <div id="header">
+      </div>
+      <div id="header-title">
+        <h1> kitCat </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor libero, congue quis lacus vel, sodales sollicitudin ipsum.</p>
+      </div>
         <div id="app">
             <router-view>
             </router-view>
