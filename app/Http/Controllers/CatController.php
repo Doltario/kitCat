@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Illuminate\Support\Facades\Input;
+use App\Cat;
 
 class CatController extends Controller
 {
@@ -21,18 +24,14 @@ class CatController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            Session::flash('message', 'Error while creating cat…');
-            // return Redirect::to('/')
-            //     ->withErrors($validator);
+            return response()->json(['error' => 'Bad request'], 400);
         } else {
             // store
-            $cat = new Cat;
-            $cat->name = Input::get('cat_name');
+            $cat = new Cat([
+                "cat_name" => $request->get('cat_name')
+            ]);
             $cat->save();
-
-            // redirect
-            Session::flash('message', 'Successfully created cat !');
-            // return Redirect::to('cats');
+            return response()->json($cat, 201);
         }
     }
 
@@ -45,7 +44,11 @@ class CatController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $cat = Cat::find($id);
 
+        // // show the edit form and pass the nerd
+        // return View::make('nerds.edit')
+        //     ->with('nerd', $nerd);
     }
 
     /**

@@ -25,5 +25,5 @@ Route::get('/cat/{id}', function ($id) {
 });
 
 Route::get('/cats', function () {
-    return new CatResource(Cat::all());
+    return new CatResource(Cat::paginate());
 });
