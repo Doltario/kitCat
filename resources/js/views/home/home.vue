@@ -2,29 +2,27 @@
 <template>
   <div id="home">
     <ul id="container-cats">
-      <li class="cat-bloc"  v-for="cat in cats">
+      <li class="cat-block" v-for="cat in cats">
         {{cat}}
         <!-- <img class="cat-img" :src="cat.min"> -->
         <h2>{{ cat.cat_name }}</h2>
       </li>
     </ul>
 
-    <b-pagination
-      v-model="currentPage"
-      :total-rows="rows"
-      :per-page="perPage"
-      aria-controls="my-table"
-    ></b-pagination>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" @click="loadCatsData(prevPageIndex)">Previous</a>
+        </li>
+        <li class="page-item" v-for="pageIndex in totalPage" :class="{'active': currentPageIndex == pageIndex}">
+          <a class="page-link" @click="loadCatsData(pageIndex)">{{ pageIndex }}</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" @click="loadCatsData(nextPageIndex)">Next</a>
+        </li>
+      </ul>
+    </nav>
 
-    <b-list-group
-      id="container-cats"
-      :items="cats"
-      :per-page="perPage"
-      :current-page="currentPage"
-      small
-    >
-
-  </b-list-group>
 
 
   </div>

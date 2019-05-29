@@ -24,8 +24,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "bootstrap-vue": "^2.0.0-rc.21",
-        "pagination": "^0.4.6",
         "vue-router": "^3.0.6"
     }
 }
