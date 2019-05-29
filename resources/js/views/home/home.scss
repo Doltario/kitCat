@@ -1,5 +1,25 @@
 @import "resources/sass/app.scss";
+@import url('https://fonts.googleapis.com/css?family=Karla|Roboto+Mono&display=swap');
 
 #home {
-    
+  ul#container-cats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0px;
+    background: #F2F1F2;
+    li {
+      flex-basis: 16.6%;
+      width: 20%;
+      list-style: none;
+      background: white;
+      margin: 10px;
+      padding: 20px;
+      img.cat-img {
+        width: 100%;
+        opacity: .8;
+      }
+    }
+  }
 }
