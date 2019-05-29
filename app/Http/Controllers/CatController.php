@@ -22,7 +22,6 @@ class CatController extends Controller
         );
         $validator = Validator::make(Input::all(), $rules);
 
-        // process the login
         if ($validator->fails()) {
             return response()->json(['error' => 'Bad request'], 400);
         } else {
@@ -44,11 +43,23 @@ class CatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $cat = Cat::find($id);
 
-        // // show the edit form and pass the nerd
-        // return View::make('nerds.edit')
-        //     ->with('nerd', $nerd);
+        $rules = array(
+            'cat_name'   => 'required'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => 'Bad request'], 400);
+        } else {
+            $cat = Cat::find($id);
+            $cat->cat_name = $request->get('cat_name');
+    
+            $cat->save();
+    
+            return response()->json($cat, 200);
+        }
     }
 
     /**
@@ -59,6 +70,12 @@ class CatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Cat::find($id);
+        if ($cat) {
+            $cat->delete();
+            return response()->json(204);
+        } else {
+            return response()->json("Cat not found", 404);
+        }
     }
 }
