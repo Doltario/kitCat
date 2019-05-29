@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from './views/home/home.vue'
 import Test from './views/test/test.vue'
+import CatCreation from './views/catCreation/catCreation.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
         path: '/test',
         name: 'test',
         component: Test
+    },
+    {
+        path: '/catCreation',
+        name: 'catCreation',
+        component: CatCreation
     }
 ]
 

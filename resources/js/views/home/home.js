@@ -23,24 +23,39 @@
 
 
 import 'axios'
+import { BPagination } from 'bootstrap-vue/es/components'
+import { BTable } from 'bootstrap-vue/es/components'
+import { BListGroup } from 'bootstrap-vue/es/components'
+
+
+
+
 export default {
   data() {
     return {
-      cats : {},
+      rows: 100,
+      perPage:5,
+      currentPage: 1,
+      cats : [],
       success:false,
     }
   },
   methods: {
-    getCatsFromApi:function () {
+    getCatsFromApi: function () {
       return axios.get('/api/cats');
     },
-    created() {
-      let vm = this;
-      vm.getCatsFromApi().then((result) => {
-        let cats;
-        vm.cats = result.data;
-        console.log(result);
-      })
-    }
+  },
+  components: {
+    'BPagination': BPagination,
+    'BTable': BTable,
+    'BListGroup': BListGroup
+  },
+  created() {
+    let vm = this;
+    vm.getCatsFromApi().then((result) => {
+      let cats;
+      vm.cats = result.data.data;
+      console.log(result);
+    })
   }
 }

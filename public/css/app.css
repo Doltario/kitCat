@@ -10674,6 +10674,16 @@ h2 {
   margin: 0 !important;
 }
 
+a {
+  color: black;
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: black;
+  text-decoration: line-through;
+}
+
 #header {
   background-image: url(https://zupimages.net/up/19/21/pm6y.jpg);
   background-size: cover;
@@ -10704,5 +10714,19 @@ h2 {
   width: 400px;
   display: block;
   margin: 0 auto;
+}
+
+form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+form label {
+  font-size: 15px;
+}
+
+form input {
+  margin-bottom: 10px;
+  height: 30px;
 }
 
