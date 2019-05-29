@@ -59,6 +59,12 @@ class CatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Cat::find($id);
+        if ($cat) {
+            $cat->delete();
+            return response()->json(201);
+        } else {
+            return response()->json("Cat not found", 404);
+        }
     }
 }
