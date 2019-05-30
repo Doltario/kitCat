@@ -27,13 +27,13 @@ export default {
     },
     loadCatsData (pageIndex) { // felix@TODO: Move page into a standalone component
       this.getCatsFromApi(pageIndex).then((result) => {
-          this.currentPageIndex = result.current_page;
-          this.totalPage = result.last_page;
-          if (result.prev_page_url) {
-            this.prevPageIndex = result.prev_page_url.split("?page=")[1];
+          this.currentPageIndex = result.meta.current_page;
+          this.totalPage = result.meta.last_page;
+          if (result.links.prev) {
+            this.prevPageIndex = result.links.prev.split("?page=")[1];
           }
-          if (result.next_page_url) {
-            this.nextPageIndex = result.next_page_url.split("?page=")[1];
+          if (result.links.next) {
+            this.nextPageIndex = result.links.next.split("?page=")[1];
           }
           this.cats = result.data;
       }, (err) => {
