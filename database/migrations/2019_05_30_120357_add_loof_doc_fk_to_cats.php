@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLoofDocumentsTable extends Migration
+class AddLoofDocFkToCats extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateLoofDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('loof_documents', function (Blueprint $table) {
-            $table->bigIncrements('loof_document_id');
-            $table->string('loof_document_url', 255);
-            $table->timestamps();
+        Schema::table('cats', function (Blueprint $table) {
+            $table->bigInteger('fk_loof_document_id')->unsigned()->nullable();
         });
     }
 
@@ -27,6 +25,8 @@ class CreateLoofDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loof_documents');
+        Schema::table('cats', function (Blueprint $table) {
+            Schema::dropIfExists('cats');
+        });
     }
 }

@@ -7,21 +7,28 @@
   <script src="/js/app.js" defer></script>
 </head>
 <body>
-  <header>
-    <div id="header">
-    </div>
-    <div id="header-title">
-      <h1> <a href="/#/"> kitCat</a> </h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor libero, congue quis lacus vel, sodales sollicitudin ipsum.<br/>
-      <a href="/#/catCreation"> + Ajouter un chat</a></p>
-
-    </div>
-
-  </header>
 
   <div id="app">
-    <router-view>
-    </router-view>
+    <router-view></router-view>
   </div>
+  <footer id="footer">
+    <div id="footer-title">
+      <div class="row justify-content-md-center">
+        <div class="col-xs-12 col-md-6">
+          <h1> <a href="/#/">KitCat</a> </h1>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col-xs-12 col-md-6">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor libero, congue quis lacus vel, sodales sollicitudin ipsum.<br/>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col-xs-12 col-md-6">
+          <a href="/#/cats/creation"> + Ajouter un chat</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

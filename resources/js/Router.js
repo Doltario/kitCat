@@ -19,7 +19,7 @@ const routes = [
         component: Test
     },
     {
-        path: '/catCreation',
+        path: '/cats/creation',
         name: 'catCreation',
         component: CatCreation
     }

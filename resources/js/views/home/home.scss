@@ -2,13 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=Karla|Roboto+Mono&display=swap');
 
 #home {
+  background: #F2F1F2;
+  padding-bottom: 80px;
+
   ul#container-cats {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     padding: 0px;
-    background: #F2F1F2;
+
     li {
       flex-basis: 16.6%;
       width: 20%;

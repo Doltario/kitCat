@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use App\Cat;
+use App\LoofDocument;
 
 class CatController extends Controller
 {
@@ -18,7 +19,7 @@ class CatController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'cat_name'   => 'required'
+            'cat_name' => 'required|max:128'
         );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -27,9 +28,21 @@ class CatController extends Controller
         } else {
             // store
             $cat = new Cat([
-                "cat_name" => $request->get('cat_name')
+                "cat_name" => $request->get('cat_name'),
             ]);
+
+            if ($request->loof_document) {
+                $loofDocument = new LoofDocument([
+                    "loof_document_url" => $request->loof_document->store('loofDocuments')
+                ]);
+    
+                $loofDocument->save();
+
+                $cat->fk_loof_document_id = $loofDocument->loof_document_id;
+            }
+
             $cat->save();
+
             return response()->json($cat, 201);
         }
     }

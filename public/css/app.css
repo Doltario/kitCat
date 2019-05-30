@@ -10684,23 +10684,20 @@ a:hover {
   text-decoration: line-through;
 }
 
-#header {
+ul {
+  margin: 0 !important;
+}
+
+#footer {
   background-image: url(https://zupimages.net/up/19/21/pm6y.jpg);
   background-size: cover;
-  height: 500px;
+  height: 400px;
   background-position: bottom;
   opacity: 0.5;
   position: relative;
 }
 
-#header-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-}
-
-#header-title h1 {
+#footer #footer-title h1 {
   color: black;
   text-align: center;
   display: block;
@@ -10708,17 +10705,6 @@ a:hover {
   opacity: 1;
   font-size: 15px;
   padding-top: 50px;
-}
-
-#header-title p {
-  width: 400px;
-  display: block;
-  margin: 0 auto;
-}
-
-form {
-  max-width: 450px;
-  margin: 0 auto;
 }
 
 form label {

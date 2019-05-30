@@ -9,6 +9,7 @@ class LoofDocument extends Model
     protected $table = 'Loof_documents';
     protected $primaryKey = 'loof_document_id';
     protected $visible = ['loof_document_id', 'loof_document_url'];
+    protected $fillable = ['loof_document_url'];
 
     public function cat()
     {

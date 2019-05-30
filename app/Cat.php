@@ -8,8 +8,8 @@ class Cat extends Model
 {
     protected $table = 'Cats';
     protected $primaryKey = 'cat_id';
-    protected $visible = ['cat_id', 'cat_name', 'fk_loof_document_id'];
-    protected $fillable = ['cat_name'];
+    // protected $visible = ['cat_id', 'cat_name', 'loof_document'];
+    protected $fillable = ['cat_name', 'fk_loof_document_id'];
     
     public function loofDocument()
     {
