@@ -11,7 +11,7 @@
   <div id="app">
     <router-view></router-view>
   </div>
-  <footer id="footer">
+  <footer id="footer" class="fluid-container">
     <div id="footer-title">
       <div class="row justify-content-md-center">
         <div class="col-xs-12 col-md-6">
@@ -25,7 +25,9 @@
       </div>
       <div class="row justify-content-md-center">
         <div class="col-xs-12 col-md-6">
-          <a href="/#/cats/creation"> + Ajouter un chat</a></p>
+          <a href="/#/cats/creation"> + Ajouter un chat</a>
+          <span>|</span>
+          <a href="/#/pictures"> Photos</a></p>
         </div>
       </div>
     </div>

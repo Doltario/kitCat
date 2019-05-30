@@ -1,31 +1,32 @@
-
 <template>
   <div id="home">
-    <ul id="container-cats">
-      <li class="cat-block" v-for="cat in cats">
-        {{cat}}
-        <!-- <img class="cat-img" :src="cat.min"> -->
-        <h2>{{ cat.cat_name }}</h2>
-        <img :src="'/storage/'+cat.loof_document.loof_document_url" alt="">
-      </li>
-    </ul>
+    <div class="container">
+      <div class="cards-container">
+        <div class="card" style="width: 18rem;" v-for="cat in cats">
+          <img class="card-img-top" :src="'/storage/'+cat.loof_document.loof_document_url" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ cat.cat_name }}</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
 
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item" @click="loadCatsData(prevPageIndex)" :class="{ 'disabled': currentPageIndex == 1 }">
-          <a class="page-link">Previous</a>
-        </li>
-        <li class="page-item" v-for="pageIndex in totalPage" :class="{ 'active': currentPageIndex == pageIndex }">
-          <a class="page-link" @click="loadCatsData(pageIndex)">{{ pageIndex }}</a>
-        </li>
-        <li class="page-item" @click="loadCatsData(nextPageIndex)" :class="{ 'disabled': currentPageIndex == totalPage }">
-          <a class="page-link">Next</a>
-        </li>
-      </ul>
-    </nav>
-
-
-
+      <nav>
+        <ul class="pagination">
+          <li class="page-item" @click="loadCatsData(prevPageIndex)" :class="{ 'disabled': currentPageIndex == 1 }">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item" v-for="pageIndex in totalPage" :class="{ 'active': currentPageIndex == pageIndex }">
+            <a class="page-link" @click="loadCatsData(pageIndex)">{{ pageIndex }}</a>
+          </li>
+          <li class="page-item" @click="loadCatsData(nextPageIndex)" :class="{ 'disabled': currentPageIndex == totalPage }">
+            <a class="page-link">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>
 
