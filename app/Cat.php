@@ -23,6 +23,6 @@ class Cat extends Model
 
     public function pictures()
     {
-        return $this->belongsToMany('App\Picture', 'RelPicturesCats', 'cat_id', 'picture_id');
+        return $this->belongsToMany('App\Picture', 'rel_pictures_cats', 'fk_cat_id', 'fk_picture_id');
     }
 }

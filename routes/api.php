@@ -52,3 +52,17 @@ Route::get('/documents/loof/{id}', function ($id) {
 Route::get('/documents/loof', function () {
     return new LoofDocumentCollection(LoofDocument::paginate());
 });
+
+// ----------------------------- ||
+// ----- Pictures endpoints -----||
+// ----------------------------- ||
+
+Route::resource('pictures', 'PictureController')->only(['store', 'update', 'destroy']);
+
+Route::get('/documents/loof/{id}', function ($id) {
+    return new LoofDocumentResource(LoofDocument::find($id));
+});
+
+Route::get('/documents/loof', function () {
+    return new LoofDocumentCollection(LoofDocument::paginate());
+});

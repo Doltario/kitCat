@@ -3,13 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+// use App\Cat;
 
-use App\LoofDocument;
-use App\Http\Resources\LoofDocument as LoofDocumentResource;
-
-// use App\Picture;
-
-class Cat extends JsonResource
+class Picture extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,13 +15,14 @@ class Cat extends JsonResource
      */
     public function toArray($request)
     {
+        var_dump($this->catsIds);die();
         return [
-            'cat_id' => $this->cat_id,
-            'cat_name' => $this->cat_name,
+            'picture_id' => $this->picture_id,
+            'picture_description' => $this->picture_description,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'loof_document' => new LoofDocumentResource(LoofDocument::find($this->fk_loof_document_id)),
-            'pictures' => Picture::collection($this->pictures)
+            'cats' => Cat::collection($this->cats)
         ];
     }
 }
+
