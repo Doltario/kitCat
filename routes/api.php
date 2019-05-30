@@ -1,10 +1,15 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Resources\Cat as CatResource;
-use App\Http\Resources\LoofDocument asRessource LoofDocumentResource;
+
 use App\Cat;
+use App\Http\Resources\CatCollection;
+use App\Http\Resources\CatResource;
+
 use App\LoofDocument;
+use App\Http\Resources\LoofDocumentCollection;
+use App\Http\Resources\LoofDocumentResource;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,7 +36,7 @@ Route::get('/cats/{id}', function ($id) {
 });
 
 Route::get('/cats', function () {
-    return new CatResource(Cat::paginate());
+    return new CatCollection(Cat::paginate());
 });
 
 
@@ -42,9 +47,9 @@ Route::get('/cats', function () {
 Route::resource('loofDocuments', 'LoofDocumentController')->only(['store', 'destroy']);
 
 Route::get('/documents/loof/{id}', function ($id) {
-    return new LoofDocumentRessource(LoofDocument::find($id));
+    return new LoofDocumentResource(LoofDocument::find($id));
 });
 
 Route::get('/documents/loof', function () {
-    return new LoofDocumentResource(LoofDocument::paginate());
+    return new LoofDocumentCollection(LoofDocument::paginate());
 });
