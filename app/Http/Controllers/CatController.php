@@ -33,7 +33,7 @@ class CatController extends Controller
 
             if ($request->loof_document) {
                 $loofDocument = new LoofDocument([
-                    "loof_document_url" => $request->loof_document->store('loofDocuments')
+                    "loof_document_url" => $request->loof_document->store('storage/loofDocuments', 'public')
                 ]);
     
                 $loofDocument->save();

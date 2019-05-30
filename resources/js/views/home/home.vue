@@ -6,6 +6,7 @@
         {{cat}}
         <!-- <img class="cat-img" :src="cat.min"> -->
         <h2>{{ cat.cat_name }}</h2>
+        <img :src="'/storage/'+cat.loof_document.loof_document_url" alt="">
       </li>
     </ul>
 

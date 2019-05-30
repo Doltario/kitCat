@@ -38062,7 +38062,14 @@ var render = function() {
         return _c("li", { staticClass: "cat-block" }, [
           _vm._v("\n      " + _vm._s(cat) + "\n      "),
           _vm._v(" "),
-          _c("h2", [_vm._v(_vm._s(cat.cat_name))])
+          _c("h2", [_vm._v(_vm._s(cat.cat_name))]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src: "/storage/" + cat.loof_document.loof_document_url,
+              alt: ""
+            }
+          })
         ])
       }),
       0

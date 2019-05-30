@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 use App\LoofDocument;
-use App\Http\Resources\LoofDocumentResource;
+use App\Http\Resources\LoofDocument as LoofDocumentResource;
 
 class Cat extends JsonResource
 {

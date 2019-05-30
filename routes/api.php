@@ -8,7 +8,7 @@ use App\Http\Resources\Cat as CatResource;
 
 use App\LoofDocument;
 use App\Http\Resources\LoofDocumentCollection;
-use App\Http\Resources\LoofDocumentResource;
+use App\Http\Resources\LoofDocument as LoofDocumentResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +38,6 @@ Route::get('/cats', function () {
 Route::get('/cats/{cat}', function (Cat $cat) {
     return new CatResource($cat);
 });
-
-
-
 
 // ----------------------------- ||
 // -- LoofDocuments endpoints -- ||
