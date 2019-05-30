@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\LoofDocument;
 use App\Http\Resources\LoofDocumentResource;
 
-class CatResource extends JsonResource
+class Cat extends JsonResource
 {
     /**
      * Transform the resource into an array.
