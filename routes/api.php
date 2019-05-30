@@ -43,7 +43,7 @@ Route::get('/cats/{cat}', function (Cat $cat) {
 // -- LoofDocuments endpoints -- ||
 // ----------------------------- ||
 
-Route::resource('loofDocuments', 'LoofDocumentController')->only(['store', 'destroy']);
+Route::resource('loofDocuments', 'LoofDocumentController')->only(['store', 'update', 'destroy']);
 
 Route::get('/documents/loof/{id}', function ($id) {
     return new LoofDocumentResource(LoofDocument::find($id));

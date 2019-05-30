@@ -1,13 +1,13 @@
 <template>
-  <div id="home">
+  <div id="pictures">
     <div class="container">
       <div class="cards-container">
-        <div class="card" style="width: 18rem;" v-for="cat in cats">
-          <img class="card-img-top" :src="'/storage/'+cat.loof_document.loof_document_url">
+        <div class="card" style="width: 18rem;" v-for="picture in pictures">
+          <img class="card-img-top" :src="'/storage/...'" alt="">
           <div class="card-body">
-            <h5 class="card-title">{{ cat.cat_name }}</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              {{ picture.description }}
+            </p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
@@ -30,6 +30,6 @@
   </div>
 </template>
 
-<script lang="text/javascript" src="./home.js"></script>
+<script lang="text/javascript" src="./pictures.js"></script>
 
-<style lang="scss" src="./home.scss" ></style>
+<style lang="scss" src="./pictures.scss" ></style>
