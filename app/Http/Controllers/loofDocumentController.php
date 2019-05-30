@@ -35,6 +35,25 @@ class loofDocumentController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $loofDocument = LoofDocument::find($id);
+        if ($loofDocument->loof_document_url) {
+            $loofDocument->loof_document_url = $request->get('loof_document_url');
+            $cat->save();
+            return response()->json($loofDocument, 200);
+        } else {
+            return response()->json("Nothing to update", 204);
+        }        
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
