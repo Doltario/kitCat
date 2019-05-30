@@ -58,7 +58,7 @@ class CatController extends Controller
     {
 
         $rules = array(
-            'cat_name'   => 'required'
+            'cat_name' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);

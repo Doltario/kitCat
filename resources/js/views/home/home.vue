@@ -2,8 +2,8 @@
   <div id="home">
     <div class="container">
       <div class="cards-container">
-        <div class="card" style="width: 18rem;" v-for="cat in cats">
-          <img class="card-img-top" :src="'/storage/'+cat.loof_document.loof_document_url">
+        <div class="card" v-for="cat in cats">
+          <img class="card-img-top" :src="'/storage/'+cat.loof_document.loof_document_url" v-if="cat.loof_document">
           <div class="card-body">
             <h5 class="card-title">{{ cat.cat_name }}</h5>
             <p class="card-text">
@@ -11,6 +11,7 @@
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
+        <div class="spacer"></div>
       </div>
 
       <nav>

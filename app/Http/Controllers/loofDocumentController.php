@@ -7,7 +7,7 @@ use Validator;
 use Illuminate\Support\Facades\Input;
 use App\LoofDocument;
 
-class loofDocumentController extends Controller
+class LoofDocumentController extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -18,7 +18,7 @@ class loofDocumentController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'loof_document_url'   => 'required'
+            'loof_document_url' => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 

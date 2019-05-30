@@ -8,5 +8,14 @@
 
   .cards-container {
     margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+
+    .card {
+      width: 30%;
+    }
+    .spacer {
+      width: 30%;
+    }
   }
 }
