@@ -1840,6 +1840,7 @@ __webpack_require__.r(__webpack_exports__);
     loadCatsData: function loadCatsData(pageIndex) {
       var _this = this;
 
+      // felix@TODO: Move page into a standalone component
       this.getCatsFromApi(pageIndex).then(function (result) {
         _this.currentPageIndex = result.current_page;
         _this.totalPage = result.last_page;
@@ -38019,20 +38020,19 @@ var render = function() {
         "ul",
         { staticClass: "pagination" },
         [
-          _c("li", { staticClass: "page-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "page-link",
-                on: {
-                  click: function($event) {
-                    return _vm.loadCatsData(_vm.prevPageIndex)
-                  }
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: { disabled: _vm.currentPageIndex == 1 },
+              on: {
+                click: function($event) {
+                  return _vm.loadCatsData(_vm.prevPageIndex)
                 }
-              },
-              [_vm._v("Previous")]
-            )
-          ]),
+              }
+            },
+            [_c("a", { staticClass: "page-link" }, [_vm._v("Previous")])]
+          ),
           _vm._v(" "),
           _vm._l(_vm.totalPage, function(pageIndex) {
             return _c(
@@ -38058,20 +38058,19 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "page-link",
-                on: {
-                  click: function($event) {
-                    return _vm.loadCatsData(_vm.nextPageIndex)
-                  }
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: { disabled: _vm.currentPageIndex == _vm.totalPage },
+              on: {
+                click: function($event) {
+                  return _vm.loadCatsData(_vm.nextPageIndex)
                 }
-              },
-              [_vm._v("Next")]
-            )
-          ])
+              }
+            },
+            [_c("a", { staticClass: "page-link" }, [_vm._v("Next")])]
+          )
         ],
         2
       )

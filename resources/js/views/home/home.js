@@ -25,7 +25,7 @@ export default {
         });
       });
     },
-    loadCatsData (pageIndex) {
+    loadCatsData (pageIndex) { // felix@TODO: Move page into a standalone component
       this.getCatsFromApi(pageIndex).then((result) => {
           this.currentPageIndex = result.current_page;
           this.totalPage = result.last_page;

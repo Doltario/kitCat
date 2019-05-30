@@ -11,14 +11,14 @@
 
     <nav aria-label="Page navigation example">
       <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" @click="loadCatsData(prevPageIndex)">Previous</a>
+        <li class="page-item" @click="loadCatsData(prevPageIndex)" :class="{ 'disabled': currentPageIndex == 1 }">
+          <a class="page-link">Previous</a>
         </li>
-        <li class="page-item" v-for="pageIndex in totalPage" :class="{'active': currentPageIndex == pageIndex}">
+        <li class="page-item" v-for="pageIndex in totalPage" :class="{ 'active': currentPageIndex == pageIndex }">
           <a class="page-link" @click="loadCatsData(pageIndex)">{{ pageIndex }}</a>
         </li>
-        <li class="page-item">
-          <a class="page-link" @click="loadCatsData(nextPageIndex)">Next</a>
+        <li class="page-item" @click="loadCatsData(nextPageIndex)" :class="{ 'disabled': currentPageIndex == totalPage }">
+          <a class="page-link">Next</a>
         </li>
       </ul>
     </nav>
