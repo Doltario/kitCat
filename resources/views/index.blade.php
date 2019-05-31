@@ -11,21 +11,25 @@
   <div id="app">
     <router-view></router-view>
   </div>
-  <footer id="footer">
+  <footer id="footer" class="fluid-container">
     <div id="footer-title">
       <div class="row justify-content-md-center">
         <div class="col-xs-12 col-md-6">
-          <h1> <a href="/#/">KitCat</a> </h1>
+          <h1> <a href="/#/">KitCat</a></h1>
         </div>
       </div>
       <div class="row justify-content-md-center">
         <div class="col-xs-12 col-md-6">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor libero, congue quis lacus vel, sodales sollicitudin ipsum.<br/>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor libero, congue quis lacus vel, sodales sollicitudin ipsum.</p>
         </div>
       </div>
       <div class="row justify-content-md-center">
         <div class="col-xs-12 col-md-6">
-          <a href="/#/cats/creation"> + Ajouter un chat</a></p>
+          <a href="/#/cats/create"> + Ajouter un chat</a>
+          <span>|</span>
+          <a href="/#/pictures"> Photos</a>
+          <span>|</span>
+          <a href="/#/pictures/create"> + Ajouter une photo</a>
         </div>
       </div>
     </div>

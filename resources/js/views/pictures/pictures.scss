@@ -1,0 +1,11 @@
+@import "resources/sass/app.scss";
+@import "resources/sass/_variables.scss";
+
+#pictures {
+  background: $nearWhite;
+  padding: 80px;
+
+  .cards-container {
+      margin-bottom: 60px;
+  }
+}

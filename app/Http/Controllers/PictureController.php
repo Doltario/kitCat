@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Input;
-use App\LoofDocument;
+use App\Picture;
 
-class LoofDocumentController extends Controller
+class PictureController extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -18,7 +18,8 @@ class LoofDocumentController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'loof_document_url' => 'required'
+            'picture_description' => 'required|max:255',
+            'image' => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -26,11 +27,21 @@ class LoofDocumentController extends Controller
             return response()->json(['error' => 'Bad request'], 400);
         } else {
             // store
-            $loofDocument = new LoofDocument([
-                "loof_document_url" => $request->get('loof_document_url')
+            $picture = new Picture([
+                "picture_description" => $request->get('picture_description'),
+                "picture_url" => $request->image->store('storage/loofDocuments', 'public')
             ]);
-            $loofDocument->save();
-            return response()->json($loofDocument, 201);
+            $picture->save();
+            try {
+                json_decode($request->get('cats_ids'));
+                // var_dump(json_decode($request->get('cats_ids')));die();
+                $picture->cats()->attach(json_decode($request->get('cats_ids')));
+            } catch (\Throwable $th) {
+                return response()->json($th, 400);
+            }
+            
+
+            return response()->json($picture, 201);
         }
     }
 
@@ -43,11 +54,11 @@ class LoofDocumentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $loofDocument = LoofDocument::find($id);
-        if ($loofDocument->loof_document_url) {
-            $loofDocument->loof_document_url = $request->get('loof_document_url');
+        $picture = Picture::find($id);
+        if ($picture->picture_url) {
+            $picture->picture_url = $request->get('picture_url');
             $cat->save();
-            return response()->json($loofDocument, 200);
+            return response()->json($picture, 200);
         } else {
             return response()->json("Nothing to update", 204);
         }        
@@ -61,12 +72,12 @@ class LoofDocumentController extends Controller
      */
     public function destroy($id)
     {
-        $loofDocument = LoofDocument::find($id);
-        if ($loofDocument) {
-            $loofDocument->delete();
+        $picture = Picture::find($id);
+        if ($picture) {
+            $picture->delete();
             return response()->json(204);
         } else {
-            return response()->json("LoofDocument not found", 404);
+            return response()->json("Picture not found", 404);
         }
     }
 }

@@ -33,7 +33,7 @@ class CatController extends Controller
 
             if ($request->loof_document) {
                 $loofDocument = new LoofDocument([
-                    "loof_document_url" => $request->loof_document->store('loofDocuments')
+                    "loof_document_url" => $request->loof_document->store('storage/loofDocuments', 'public')
                 ]);
     
                 $loofDocument->save();
@@ -58,7 +58,7 @@ class CatController extends Controller
     {
 
         $rules = array(
-            'cat_name'   => 'required'
+            'cat_name' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
