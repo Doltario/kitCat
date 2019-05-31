@@ -10,6 +10,10 @@ use App\LoofDocument;
 use App\Http\Resources\LoofDocumentCollection;
 use App\Http\Resources\LoofDocument as LoofDocumentResource;
 
+use App\Picture;
+use App\Http\Resources\PictureCollection;
+use App\Http\Resources\Picture as PictureResource;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -59,10 +63,10 @@ Route::get('/documents/loof', function () {
 
 Route::resource('pictures', 'PictureController')->only(['store', 'update', 'destroy']);
 
-Route::get('/documents/loof/{id}', function ($id) {
-    return new LoofDocumentResource(LoofDocument::find($id));
+Route::get('/pictures/{id}', function ($id) {
+    return new PictureResource(Picture::find($id));
 });
 
-Route::get('/documents/loof', function () {
-    return new LoofDocumentCollection(LoofDocument::paginate());
+Route::get('/pictures', function () {
+    return new PictureCollection(Picture::paginate());
 });

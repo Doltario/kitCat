@@ -33,8 +33,6 @@ class PictureController extends Controller
             ]);
             $picture->save();
             try {
-                json_decode($request->get('cats_ids'));
-                // var_dump(json_decode($request->get('cats_ids')));die();
                 $picture->cats()->attach(json_decode($request->get('cats_ids')));
             } catch (\Throwable $th) {
                 return response()->json($th, 400);

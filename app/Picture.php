@@ -8,7 +8,7 @@ class Picture extends Model
 {
     protected $table = 'Pictures';
     protected $primaryKey = 'picture_id';
-    protected $visible = ['picture_url', 'picture_description'];
+    protected $visible = ['picture_url', 'picture_description', 'cats'];
     protected $fillable = ['picture_description', 'picture_url'];
 
     public function cats()

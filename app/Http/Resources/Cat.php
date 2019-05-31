@@ -24,8 +24,8 @@ class Cat extends JsonResource
             'cat_name' => $this->cat_name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'loof_document' => new LoofDocumentResource(LoofDocument::find($this->fk_loof_document_id)),
-            'pictures' => Picture::collection($this->pictures)
+            'loof_document' => new LoofDocumentResource(LoofDocument::find($this->fk_loof_document_id))
+            // 'pictures' => Picture::collection($this->pictures)
         ];
     }
 }

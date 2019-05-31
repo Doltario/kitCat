@@ -15,7 +15,6 @@ class Picture extends JsonResource
      */
     public function toArray($request)
     {
-        var_dump($this->catsIds);die();
         return [
             'picture_id' => $this->picture_id,
             'picture_description' => $this->picture_description,
