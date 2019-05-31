@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from './views/home/home.vue'
+import Cat from './views/cat/cat.vue'
 import CatCreation from './views/catCreation/catCreation.vue'
 import Pictures from './views/pictures/pictures.vue'
 import PictureCreation from './views/pictureCreation/pictureCreation.vue'
@@ -19,12 +20,8 @@ const routes = [
         name: 'catCreation',
         component: CatCreation
     },
-    {
-<<<<<<< HEAD
-        path: '/cats/{id}',
-        name: 'onecat',
-        component: OneCat
-=======
+
+      {
         path: '/pictures',
         name: 'pictures',
         component: Pictures
@@ -33,7 +30,11 @@ const routes = [
         path: '/pictures/create',
         name: 'pictureCreation',
         component: PictureCreation
->>>>>>> develop
+    },
+    {
+      path: '/cats/:id',
+      name:'cat',
+      component: Cat
     }
 ]
 
