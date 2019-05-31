@@ -22,6 +22,11 @@ const routes = [
         path: '/cats/creation',
         name: 'catCreation',
         component: CatCreation
+    },
+    {
+        path: '/cats/{id}',
+        name: 'onecat',
+        component: OneCat
     }
 ]
 
